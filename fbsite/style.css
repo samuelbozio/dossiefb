@@ -1,0 +1,130 @@
+:root {
+  --fundo: #141414;
+  --painel: #1d1d1d;
+  --painel-2: #262626;
+  --texto: #e6e6e6;
+  --suave: #8f8f8f;
+  --destaque: #f2f2f2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; border: 0; border-radius: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+
+/* HERO */
+.hero { text-align: center; padding: 90px 20px 70px; background: var(--painel); }
+.hero h1 {
+  font-family: "Spectral", Georgia, serif;
+  font-size: clamp(2.2rem, 7vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  color: var(--destaque);
+}
+.hero p { color: var(--suave); margin: 14px auto 28px; max-width: 480px; }
+.hero-link {
+  display: inline-block; padding: 11px 24px; color: var(--fundo);
+  background: var(--destaque); text-decoration: none; transition: background .2s;
+}
+.hero-link:hover { background: #bdbdbd; }
+
+/* BARRA */
+.toolbar {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px; flex-wrap: wrap; margin: 44px 0 20px;
+}
+.toolbar h2 { font-family: "Spectral", serif; font-size: 1.6rem; }
+.toolbar h2 span { color: var(--suave); margin-left: 6px; }
+#busca {
+  flex: 1; min-width: 220px; max-width: 360px; padding: 11px 14px;
+  background: var(--painel); color: var(--texto); font: inherit;
+}
+#busca:focus, .chip:focus-visible, button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--destaque); outline-offset: 2px;
+}
+
+/* FILTROS */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.chip {
+  background: var(--painel); color: var(--suave);
+  padding: 8px 16px; cursor: pointer; font: inherit; font-size: .88rem;
+}
+.chip b { color: var(--texto); margin-left: 6px; font-weight: 500; }
+.chip:hover { background: var(--painel-2); color: var(--texto); }
+.chip.ativo { background: var(--destaque); color: var(--fundo); }
+.chip.ativo b { color: var(--fundo); }
+
+.contador { color: var(--suave); font-size: .88rem; margin-bottom: 18px; }
+
+/* CARDS */
+.grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.card {
+  background: var(--painel);
+  padding: 22px; display: flex; flex-direction: column; gap: 10px;
+}
+.card h3 { font-family: "Spectral", serif; font-size: 1.25rem; line-height: 1.25; color: var(--destaque); }
+.card .sub { color: var(--suave); font-size: .92rem; }
+.card .resumo { font-size: .95rem; flex: 1; }
+.card .rodape-card {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 10px; margin-top: 8px; font-size: .82rem; color: var(--suave);
+}
+.ampliar {
+  background: var(--painel-2); color: var(--texto);
+  padding: 7px 14px; cursor: pointer; font: inherit; font-size: .85rem; white-space: nowrap;
+}
+.ampliar:hover { background: var(--destaque); color: var(--fundo); }
+
+/* STATUS: tons de cinza diferentes */
+.status {
+  align-self: flex-start; font-size: .78rem; padding: 3px 10px;
+  background: var(--painel-2); color: var(--texto);
+}
+.status.em-andamento, .status.denunciado, .status.condenado { background: var(--destaque); color: var(--fundo); }
+.status.encerrado, .status.arquivado, .status.anulado { background: #333; color: #aaa; }
+.status.reportagem, .status.posicao-publica { background: #2e2e2e; color: #bdbdbd; }
+.status.alegacao { background: #3a3a3a; color: #d0d0d0; }
+
+.vazio { text-align: center; color: var(--suave); padding: 50px 0; }
+
+/* MODAL */
+.modal {
+  position: fixed; inset: 0; background: rgba(0, 0, 0, .85);
+  display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 10;
+}
+.modal[hidden] { display: none; }
+.modal-caixa {
+  background: var(--painel);
+  max-width: 640px; width: 100%; max-height: 88vh; overflow-y: auto;
+  padding: 32px; position: relative; display: flex; flex-direction: column; gap: 12px;
+}
+.modal-caixa h3 { font-family: "Spectral", serif; font-size: 1.6rem; line-height: 1.2; color: var(--destaque); }
+.data { color: var(--suave); font-size: .88rem; }
+.detalhe p { margin-bottom: 10px; }
+.fontes { list-style: none; background: var(--painel-2); padding: 14px 16px; font-size: .9rem; }
+.fontes a { color: var(--destaque); }
+.fechar {
+  position: absolute; top: 10px; right: 14px; background: none;
+  color: var(--suave); font-size: 1.8rem; cursor: pointer;
+}
+.fechar:hover { color: var(--destaque); }
+
+/* RODAPÉ */
+.rodape {
+  background: var(--painel); text-align: center; color: var(--suave);
+  font-size: .85rem; padding: 30px 20px 50px; display: grid; gap: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

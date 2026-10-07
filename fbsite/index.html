@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dossiê Flávio Bolsonaro</title>
+  <meta name="description" content="Investigações, processos e denúncias envolvendo Flávio Bolsonaro, com fontes públicas.">
+  <meta name="theme-color" content="#0c0b0d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>dossiê flávio bolsonaro</h1>
+    <p>Investigações, processos e denúncias, reunidos com fontes públicas.</p>
+    <a class="hero-link" href="#colecao">Ir para os registros</a>
+  </header>
+
+  <main id="colecao" class="wrap">
+    <div class="toolbar">
+      <h2>Registros <span id="total">0</span></h2>
+      <input id="busca" type="search" placeholder="Buscar palavra ou tema" aria-label="Buscar">
+    </div>
+
+    <div id="filtros" class="chips" role="group" aria-label="Filtrar por tema"></div>
+
+    <p id="contador" class="contador"></p>
+    <section id="grade" class="grade"></section>
+    <p id="vazio" class="vazio" hidden>Nenhum registro encontrado. Tente outra palavra ou outro tema.</p>
+  </main>
+
+  <footer class="rodape">
+    <p>Fontes públicas. Cada registro traz o link da fonte original.</p>
+    <p>Investigação ou denúncia não é condenação. Vale a presunção de inocência até decisão definitiva.</p>
+    <p>Site independente, não filiado a nenhum partido.</p>
+  </footer>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-caixa" role="dialog" aria-modal="true" aria-labelledby="m-titulo">
+      <button id="fechar" class="fechar" aria-label="Fechar">&times;</button>
+      <span id="m-status" class="status"></span>
+      <h3 id="m-titulo"></h3>
+      <p id="m-data" class="data"></p>
+      <div id="m-detalhe" class="detalhe"></div>
+      <ul id="m-fontes" class="fontes"></ul>
+    </div>
+  </div>
+
+  <script src="dados.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
